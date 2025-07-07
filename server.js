@@ -36,3 +36,12 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Servidor corriendo en http://localhost:${PORT}`);
 });
+
+app.post('/api/confirmar-compra', (req, res) => {
+  // Podés enviar una respuesta falsa por ahora
+  res.json({ mensaje: "Compra confirmada correctamente" });
+});
+
+app.get("/", (req, res) => {
+  res.render("bienvenida"); // ✅ Esto está perfecto si tu archivo se llama bienvenida.ejs
+});

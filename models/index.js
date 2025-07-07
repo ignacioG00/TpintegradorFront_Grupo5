@@ -5,6 +5,19 @@ const path = require('path');
 const Sequelize = require('sequelize');
 require('dotenv').config();
 
+document.getElementById("btnContinuar").addEventListener("click", () => {
+  const nombre = document.getElementById("nombreCliente").value.trim();
+
+  if (nombre === "") {
+    alert("Por favor ingresá tu nombre");
+    return;
+  }
+
+  localStorage.setItem("cliente", nombre); // 💾 Guardamos el nombre
+
+  window.location.href = "/productos"; // 👉 Redirigimos a productos
+});
+
 const sequelize = new Sequelize(
   process.env.DB_NAME || 'tp_autoservicio',
   process.env.DB_USER || 'root',

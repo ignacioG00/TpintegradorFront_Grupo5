@@ -58,32 +58,32 @@ function eliminarProducto(id) {
 }
 
 function confirmarCompra() {
-  const carrito = getCarrito();
-  if (!carrito.length) return alert('El carrito está vacío.');
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const cliente = localStorage.getItem("cliente");
 
-  const nombre = localStorage.getItem('nombreCliente') || 'Cliente';
-  const payload = {
-    nombre,
-    productos: carrito,
-    fecha: new Date().toISOString()
-  };
+  if (carrito.length === 0) {
+    alert("🛒 El carrito está vacío.");
+    return;
+  }
 
-  fetch('/api/ventas', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  })
-    .then(res => res.json())
-    .then(data => {
-      localStorage.setItem('ultimaCompra', JSON.stringify(data));
-      localStorage.removeItem('carrito');
-      window.location.href = '/ticket';
-    })
-    .catch(err => {
-      console.error('Error al confirmar compra:', err);
-      alert('Hubo un error. Intenta nuevamente.');
-    });
+  if (!cliente) {
+    alert("👤 Falta el nombre del cliente.");
+    window.location.href = "/";
+    return;
+  }
+
+  try {
+    // Simulá una compra
+    console.log("✅ Compra confirmada");
+    // Redirigir al ticket
+    window.location.href = "/ticket";
+  } catch (error) {
+    console.error("Error al confirmar compra:", error);
+    alert("⚠️ Ocurrió un error al procesar la compra.");
+  }
 }
+// Este archivo maneja el carrito de compras del cliente.
+// Permite agregar productos, cambiar cantidades, eliminar productos y confirmar la compra.
 
 function agregarAlCarrito(id, nombre, precio, imagen) {
   // Obtener carrito del almacenamiento o crear uno nuevo

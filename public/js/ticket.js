@@ -1,39 +1,33 @@
-document.addEventListener('DOMContentLoaded', () => {
-  const compra = JSON.parse(localStorage.getItem('ultimaCompra'));
-  const nombre = localStorage.getItem('nombreCliente') || 'Cliente';
+document.addEventListener("DOMContentLoaded", () => {
+  const nombre = localStorage.getItem("cliente") || "Cliente";
+  const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+  const fecha = new Date().toLocaleDateString();
+  const tbody = document.querySelector("#tablaTicket tbody");
+  const ticketCliente = document.getElementById("ticketCliente");
+  const ticketFecha = document.getElementById("ticketFecha");
+  const ticketTotal = document.getElementById("ticketTotal");
+  const botonSalir = document.getElementById("botonSalir");
 
-  if (!compra) {
-    alert('No hay ticket disponible.');
-    window.location.href = '/';
-    return;
-  }
+  ticketCliente.textContent = nombre;
+  ticketFecha.textContent = fecha;
 
-  document.getElementById('nombreCliente').textContent = nombre;
-  document.getElementById('fechaTicket').textContent = new Date().toLocaleDateString();
-
-  const tbody = document.getElementById('tablaProductos');
   let total = 0;
 
-  compra.productos.forEach(p => {
-    const fila = document.createElement('tr');
-    const subtotal = p.precio * p.cantidad;
-    total += subtotal;
-
+  carrito.forEach((item) => {
+    const fila = document.createElement("tr");
     fila.innerHTML = `
-      <td>${p.nombre}</td>
-      <td>${p.cantidad}</td>
-      <td>$${p.precio.toFixed(2)}</td>
-      <td>$${subtotal.toFixed(2)}</td>
+      <td>${item.nombre}</td>
+      <td>${item.cantidad}</td>
+      <td>$${item.precio * item.cantidad}</td>
     `;
     tbody.appendChild(fila);
+    total += item.precio * item.cantidad;
   });
 
-  document.getElementById('totalFinal').textContent = total.toFixed(2);
+  ticketTotal.textContent = total.toFixed(2);
+
+  botonSalir.addEventListener("click", () => {
+    localStorage.clear();
+    window.location.href = "/";
+  });
 });
-
-
-function reiniciar() {
-  localStorage.removeItem('carrito');
-  localStorage.removeItem('ultimaCompra');
-  window.location.href = '/';
-}
