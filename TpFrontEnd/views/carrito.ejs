@@ -1,0 +1,30 @@
+<%- include('layouts/header') %>
+
+<section class="carrito">
+  <h2>Tu carrito de compras 🛒</h2>
+
+  <table id="tablaCarrito">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Precio unitario</th>
+        <th>Cantidad</th>
+        <th>Total</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Se completa con JS dinámicamente -->
+    </tbody>
+  </table>
+
+  <div class="resumen">
+    <h3>Total: $<span id="totalCarrito">0.00</span></h3>
+    <button id="confirmarCompra">Finalizar compra</button>
+    <button id="volverAProductos" onclick="window.location.href='/productos'">Seguir comprando</button>
+  </div>
+</section>
+
+<script src="/js/carrito.js"></script>
+
+<%- include('layouts/footer') %>

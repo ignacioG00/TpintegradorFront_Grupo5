@@ -1,0 +1,31 @@
+<%- include('layouts/header') %>
+
+<section class="productos-grid">
+  <% categorias.forEach(categoria => { %>
+    <h2 class="categoria-titulo"><%= categoria.nombre %></h2>
+    <div class="categoria-listado">
+      <% categoria.productos.forEach(prod => { %>
+        <div class="producto-card">
+          <img src="/images/<%= prod.imagen %>" alt="<%= prod.nombre %>">
+          <h3><%= prod.nombre %></h3>
+          <p class="precio">$<%= prod.precio %></p>
+          <a href="/detalle/<%= prod.id %>" class="boton-comprar">Ver detalle</a>
+        </div>
+      <% }) %>
+    </div>
+  <% }) %>
+</section>
+
+<!-- Paginación simple -->
+<div class="paginacion">
+  <% for (let i = 1; i <= totalPaginas; i++) { %>
+    <a href="/productos?pagina=<%= i %><%= nombreUsuario ? `&nombre=${nombreUsuario}` : '' %>" class="<%= i === paginaActual ? 'activo' : '' %>">
+      <%= i %>
+    </a>
+  <% } %>
+</div>
+
+<%- include('layouts/footer') %>
+<!-- Este archivo muestra una lista de productos organizados por categorías.
+     Cada categoría tiene su título y una lista de productos con su imagen, nombre, precio y un enlace para ver más detalles.
+     También incluye una paginación simple para navegar entre las páginas de productos. -->
