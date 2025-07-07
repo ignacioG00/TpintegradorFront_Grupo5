@@ -1,0 +1,22 @@
+<%- include('layouts/header') %>
+
+<section class="bienvenida">
+  <h2>¡Bienvenido al autoservicio virtual!</h2>
+  <form id="formNombre" action="/productos" method="GET">
+    <label for="nombre">Por favor, ingresá tu nombre:</label>
+    <input type="text" id="nombre" name="nombre" required />
+    <button type="submit">Continuar</button>
+  </form>
+</section>
+
+<script>
+  // Guardar el nombre en localStorage para luego usarlo en el ticket
+  document.getElementById('formNombre').addEventListener('submit', function(e) {
+    const nombre = document.getElementById('nombre').value.trim();
+    if (nombre) {
+      localStorage.setItem('nombreCliente', nombre);
+    }
+  });
+</script>
+
+<%- include('./layouts/footer') %>

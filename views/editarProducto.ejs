@@ -1,0 +1,25 @@
+<%- include('layouts/header') %>
+
+<section class="editar-producto">
+  <h2>Editar Producto</h2>
+  <form action="/admin/editar/<%= producto.id %>" method="POST" enctype="multipart/form-data">
+    <label>Nombre:</label>
+    <input type="text" name="nombre" value="<%= producto.nombre %>" required />
+
+    <label>Tipo:</label>
+    <input type="text" name="tipo" value="<%= producto.tipo %>" required />
+
+    <label>Precio:</label>
+    <input type="number" name="precio" step="0.01" value="<%= producto.precio %>" required />
+
+    <label>Imagen actual:</label>
+    <img src="/uploads/productos/<%= producto.imagen %>" height="60" />
+
+    <label>Nueva imagen (opcional):</label>
+    <input type="file" name="imagen" accept="image/*" />
+
+    <button type="submit">Guardar cambios</button>
+  </form>
+</section>
+
+<%- include('layouts/footer') %>

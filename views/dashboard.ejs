@@ -1,0 +1,42 @@
+<%- include('layouts/header') %>
+
+<section class="dashboard">
+  <h2>Gestión de Productos</h2>
+  <a href="/admin/alta">Agregar producto</a>
+  <a href="/admin/logout">Cerrar sesión</a>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Imagen</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% productos.forEach(p => { %>
+        <tr>
+          <td><%= p.nombre %></td>
+          <td><%= p.tipo %></td>
+          <td>$<%= p.precio.toFixed(2) %></td>
+          <td><img src="/uploads/productos/<%= p.imagen %>" height="50" /></td>
+          <td><%= p.activo ? 'Activo' : 'Inactivo' %></td>
+          <td>
+            <form method="POST" action="/admin/baja/<%= p.id %>" style="display:inline;">
+              <button>Eliminar</button>
+            </form>
+            <form method="POST" action="/admin/activar/<%= p.id %>" style="display:inline;">
+              <button>Activar</button>
+            </form>
+            <a href="/admin/editar/<%= p.id %>">Editar</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</section>
+
+<%- include('layouts/footer') %>
