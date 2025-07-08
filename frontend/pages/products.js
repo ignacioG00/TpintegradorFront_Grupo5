@@ -20,7 +20,7 @@ function configurarBotones() {
   document.getElementById("btn-exit")?.addEventListener("click", () => {
     sessionStorage.clear();
     localStorage.clear();
-    window.location.href = "../index.html";
+    window.location.href = "../home.html";
   });
 
   document.getElementById("prev-page")?.addEventListener("click", () => {

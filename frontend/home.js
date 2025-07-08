@@ -1,5 +1,7 @@
 import { initlizeTheme } from  "./src/themeSwitch.js";
 
+const baseUrl = "http://localhost:3000";
+
 document.addEventListener("DOMContentLoaded", () => { 
     initlizeTheme();
 });
@@ -11,6 +13,14 @@ formCliente.addEventListener("submit", event => {
     sessionStorage.setItem("user", document.getElementById("client-name").value.trim());
 });
 
+const quickLoginBtn = document.getElementById("btn-quick-login");
+quickLoginBtn.addEventListener("click", () => {
+
+    document.getElementById("admin-email").value = "gonzalo@utn.com";
+    document.getElementById("admin-password").value = "0h8vNufy";
+
+});
+
 const formAdmin = document.getElementById("admin-login-form");
 formAdmin.addEventListener("submit", async event => {
    
@@ -20,7 +30,7 @@ formAdmin.addEventListener("submit", async event => {
     let data = Object.fromEntries(formData.entries());
     try {
 
-        let response = await fetch("http://localhost:3000/admin/login", {
+        let response = await fetch(`${baseUrl}/api/admin/login`, {
 
             method: "POST",
             headers: {
@@ -38,7 +48,7 @@ formAdmin.addEventListener("submit", async event => {
 
             let resultado = await response.json();
             sessionStorage.setItem("user", resultado.admin);
-            window.location.href = "./pages/dashboard.html"
+            window.location.href = `${baseUrl}/dashboard`;
 
         }
     
