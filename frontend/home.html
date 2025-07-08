@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./css/styles.css">
+    <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
+    <script type="module" src="./home.js" defer></script>
+    <title>TP Integrador | Fulbo$hop</title>
+</head>
+<body>
+
+    <header>
+        <div class="spacing"></div>
+        <img id="logo" src="../assets/img/logo.png" alt="Logo Fulbo$hop"/>
+        <nav id="nav-bar">
+            <label class="switch">
+                <input type="checkbox" class="theme" id="theme-input">
+                <div class="switch-rail"><span class="switch-orb"></span></div>
+                <span class="theme-sign"><img src="" alt="temaOscuro" id="theme-sign"></span>
+            </label>
+            <button class="nav-button" id="btn-products">Productos</button>
+            <button class="nav-button" id="btn-carrito">Carrito</button>
+            <button class="nav-button" id="btn-encuesta">Encuesta</button>
+            <button class="nav-button" id="btn-exit">Salir</button>
+        </nav>
+    </header>
+
+    <main>
+
+        <hr>
+        <h1 class="page-title">Bienvenido a <span id="company-name">FULBO<span id="logo-char">$</span>HOP</span></h1>
+        <hr>
+        
+        <section id="login-section">
+
+            <div id="client-login-container" class="form-container">
+                <h3 class="form-title">Ingrese su Nombre</h3>
+
+                <form id="client-login-form" autocomplete="off">
+                    <label for="client-name" class="form-component">Nombre</label>
+                    <br>
+                    <input type="text" name="client-name" id="client-name" class="form-component" required />
+                    <br>
+                    <input type="submit" class="form-button form-component" id="btn-client-login"  value="Continuar" />
+                </form>
+
+            </div>
+
+            <div id="admin-login-container" class="form-container">
+                <h3 class="form-title">Sección Administradores</h3>
+
+                <form id="admin-login-form">
+                    <label for="admin-email" class="form-component">Correo</label>
+                    <br>
+                    <input type="email" name="admin-email" id="admin-email" class="form-component" required />
+                    <br>
+                    <label for="admin-password" class="form-component">Contraseña</label>
+                    <br>
+                    <input type="password" name="admin-password" id="admin-password" class="form-component" required />
+                    <br>
+                    <input type="button" class="form-button form-component" id="btn-quick-login"  value="Ingreso Rápido" />
+                    <br>
+                    <input type="submit" class="form-button form-component" id="btn-admin-login" value="Ingresar" />
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <div id="authors-data">
+            <p>Pérez, Gonzalo Ezequiel - Guillen, Ignacio</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

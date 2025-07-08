@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP Integrador 334</title>    
+    <link rel="stylesheet" href="../css/styles.css">
+    <script type="module" src="./productos.js" defer ></script>
+</head>
+<body>
+
+    <header>
+        <div class="spacing"></div>
+            <img id="logo" src="../assets/img/logo.png" alt="Logo Fulbo$hop" />
+            <nav id="nav-bar">
+            <label class="switch">
+                <input type="checkbox" class="theme" id="theme-input" />
+                <div class="switch-rail"><span class="switch-orb"></span></div>
+                <span class="theme-sign"><img src="" alt="temaOscuro" id="theme-sign" /></span>
+            </label>
+        <button class="nav-button" id="btn-products">Productos</button>
+        <button class="nav-button" id="btn-carrito">Carrito</button>
+        <button class="nav-button" id="btn-encuesta">Encuesta</button>
+        <button class="nav-button" id="btn-exit">Salir</button>
+    </nav>
+    </header>
+
+        <hr>
+        <h1 class="page-title">Modificar Producto</h1>
+        <hr>
+
+        <main id="product-container">
+
+            <div id="get-product-container" class="form-container">
+                <h3 class="form-title">Obtener Producto por ID</h3>
+
+                <form id="get-product-form" autocomplete="off">
+                    <label for="product-id">ID Producto</label>
+                    <input type="number" name="product-id" class="form-component" id="product-id-input" required>
+                    <input type="submit" class="form-component" value="Obtener Producto">
+                </form>                
+
+            </div>
+
+            <br>
+
+            <div id="product-container">
+                <ul id="product-list">
+                </ul>
+            </div>
+
+            <br>
+
+            <div id="edit-product-container" class="form-container">           
+
+            </div> 
+
+        </main>
+
+        <footer>
+            <div id="authors-data">
+                <p>Pérez, Gonzalo Ezequiel - Guillen, Ignacio</p>
+            </div>
+        </footer>
+
+        <script>
+
+            const baseUrl = "http://localhost:3000/api";
+
+            let get_product_form = document.getElementById("get-product-form");
+            let edit_product_container = document.getElementById("edit-product-container");
+            let product_list = document.getElementById("product-list");
+
+            get_product_form.addEventListener("submit", async (event) => {
+
+                event.preventDefault();
+
+                try {
+
+                    product_list.innerHTML = "<p>Cargando producto...</p>";
+
+                    let formData = new FormData(event.target); 
+                    let data = Object.fromEntries(formData.entries());
+
+                    let idProd = data["product-id"].trim();
+
+                    if(!idProd) {
+                        throw new Error(`Error en el envio de datos del formulario.`);
+                    }
+
+                    let response = await fetch(`${baseUrl}/products/${idProd}`);
+                    
+                    if(!response.ok) {
+                        throw new Error(`Error ${response.status}: ${response.statusText}`);
+                    }
+
+                    let datos = await response.json();
+
+                    if(!datos.payload || datos.payload.length === 0) {
+                        throw new Error("No se encontro el producto solicitado.")
+                    }
+                    
+                    let producto = datos.payload[0];
+
+                    let HTMLProducto = `
+                        <li class="product-item">
+                            <img src="${producto.image}" alt="${producto.nombre}" class="product-img">
+                            <p>Id: ${producto.id} / ${producto.product_type} ${producto.desc_text} N°${producto.desc_number} / <strong>Precio: $${producto.price}</strong></p>
+                            <input type="button" class="form-button form-component" id="edit-product-btn" value="Actualizar producto">
+                        </li>
+                    `;
+
+                    product_list.innerHTML = HTMLProducto;
+
+                    let editProduct_btn = document.getElementById("edit-product-btn");
+                    editProduct_btn.addEventListener("click", (event) => {
+                        formularioPutProducto(event, producto);
+                    });
+
+                    
+
+                } catch (error) {
+
+                    console.error("Error al obtener el producto: ", error);
+                    product_list.innerHTML = `<p>${error.message}</p>`
+
+                }
+
+            });
+            
+            function formularioPutProducto(event, product) {
+                event.stopPropagation();
+                console.log(product);
+
+                let updateProduct = `
+                    <div id="edit-product-container" class="form-container">
+
+                        <h3 class="form-title">Actualizar Producto</h3>
+
+                        <form id="edit-product-form" autocomplete="off">
+
+                            <label for="product-id" class="form-component">ID</label>
+                            <input type="number" name="product-id" class="form-component" id="product-id-inputt" value="${product.id}"" readonly>
+
+                            <label for="product-type" class="form-component">Tipo de Producto</label>
+                            <select name="product-type" class="form-component" id="product-type-select" required>
+                                <option value="shirt" selected>Camiseta</option>
+                                <option value="shoes">Botines</option>
+                            </select>
+
+                            <label for="text-desc" class="form-component" id="text-desc-label">Nombre Estampa</label>
+                            <input type="text" name="text-desc" class="form-component" id="text-desc-input" value="${product.desc_text}" required>
+
+                            <label for="number-desc" class="form-component" id="number-desc-label">Nro. Camiseta Estampa</label>
+                            <input type="number" name="number-desc" class="form-component" id="number-desc-input" value="${product.desc_number}" required>
+
+                            <label for="quality" class="form-component">Calidad</label>
+                            <select name="quality" class="form-component" id="quality-select" required>
+                                <option id="qualityValue1" value="1" selected>Jugador</option>
+                                <option id="qualityValue2" value="2">Hincha</option>
+                            </select>
+
+                            <label for="price" class="form-component">Precio</label>
+                            <input type="number" name="price" class="form-component" id="price-input" value="${product.price}" required>
+
+                            <label for="image" class="form-component">Imagen</label>
+                            <input type="text" name="image" class="form-component" id="image-input" value="${product.image}" required>
+
+                            <input type="submit" class="form-component" value="Actualizar Producto">
+
+                        </form>
+
+                    </div>`;
+
+                edit_product_container.innerHTML = updateProduct;
+
+                let productTypeSelect = document.getElementById("product-type-select");
+                let qualitySelect = document.getElementById("quality-select");
+                let textDescription = document.getElementById("text-desc-label");
+                let numberDescription = document.getElementById("number-desc-label");
+                let qualityValue1 = document.getElementById("qualityValue1");
+                let qualityValue2 = document.getElementById("qualityValue2");
+                productTypeSelect.addEventListener("change", () => {
+                    if(productTypeSelect.value === "shirt") {
+
+                        textDescription.textContent = "Estampa";
+                        numberDescription.textContent = "Nro. Camiseta";
+                        qualityValue1.textContent = "Jugador";
+                        qualityValue2.textContent = "Hincha";
+
+                    } else if (productTypeSelect.value === "shoes") {
+
+                        textDescription.textContent = "Modelo";
+                        numberDescription.textContent = "Talle";
+                        qualityValue1.textContent = "Césped";
+                        qualityValue2.textContent = "Sintético";
+                    }
+                });
+
+                let ediProduct_form = document.getElementById("edit-product-form");
+                ediProduct_form.addEventListener("submit", (event) => {
+                    actualizarProducto(event);
+                })
+            }
+
+            async function actualizarProducto(event) {
+                event.preventDefault();
+
+                let formData = new FormData(event.target);               
+
+                let data = Object.fromEntries(formData.entries());
+                let idProd = data["product-id"].trim();
+
+                if(!data["product-type"] || !data["text-desc"] || !data["number-desc"] || !data["quality"] || !data["price"] || !data["image"]) {
+                    alert("Todos los campos son obligatorios!");
+                    return;
+                }
+
+                try {
+
+                    let response = await fetch(`${baseUrl}/products/${idProd}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type" : "application/json"
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if(response.ok) {
+                        console.log(response);
+
+                        let result = await response.json();
+                        console.log(result.message);
+                        alert(result.message);
+
+                        product_list.innerHTML = ``;
+                        edit_product_container.innerHTML = ``;
+
+                    } else {
+
+                        let error = await response.json();
+                        console.log("Error: ", error.message);
+                    }
+
+                } catch(error) {
+
+                    console.log("Error al enviar los datos. ", error);
+                    alert("Error al enviar la solicitud");
+
+                }
+            }
+
+        </script>
+        
+</body>
+</html>

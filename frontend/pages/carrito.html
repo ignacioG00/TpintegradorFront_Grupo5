@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Carrito - Fulbo$hop</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon" />
+  <script type="module" src="./carrito.js" defer></script>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="spacing"></div>
+    <img id="logo" src="../assets/img/logo.png" alt="Logo Fulbo$hop" />
+    <nav id="nav-bar">
+      <button class="nav-button" id="btn-products">Productos</button>
+      <button class="nav-button" id="btn-finalizar">Finalizar compra</button>
+      <button class="nav-button" id="btn-exit">Salir</button>
+    </nav>
+  </header>
+
+  <!-- Contenido principal -->
+  <main>
+    <h1 class="page-title">🛒 Tu Carrito</h1>
+
+    <section class="carrito-scroll">
+      <ul id="carrito-lista" class="carrito-grid">
+        <!-- Los productos se insertan desde carrito.js -->
+      </ul>
+    </section>
+
+    <div class="total-carrito">
+      <p>Total: <span id="total-carrito">$0.00</span></p>
+    </div>
+  </main>
+
+</body>
+</html>
+
