@@ -52,7 +52,7 @@ form.addEventListener('submit', async (e) => {
   formData.append('fecha', new Date().toISOString());
 
   try {
-    const response = await fetch('http://localhost:3001/api/encuesta', {
+    const response = await fetch('http://localhost:3000/api/encuesta', {
       method: 'POST',
       body: formData,
     });
