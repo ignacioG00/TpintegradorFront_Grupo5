@@ -17,8 +17,9 @@
       <label class="switch">
         <input type="checkbox" class="theme" id="theme-input" />
         <div class="switch-rail"><span class="switch-orb"></span></div>
-        <span class="theme-sign"><img src="" alt="temaOscuro" id="theme-sign" /></span>
+        <span class="theme-sign"><img src="../assets/img/moon.png" alt="temaOscuro" id="theme-sign" /></span>
       </label>
+
       <button class="nav-button" id="btn-products">Productos</button>
       <button class="nav-button" id="btn-carrito">Carrito</button>
       <button class="nav-button" id="btn-encuesta">Encuesta</button>
@@ -27,27 +28,31 @@
   </header>
 
   <hr />
-  <h1 class="page-title">Nuestros Productos</h1>
+  <h1 class="page-title" id="titulo-galeria">Galería de Productos</h1>
   <hr />
 
   <main id="get-container">
     <div id="products-container">
-        <section id="filtros">
-  <label for="categoria">Filtrar por categoría:</label>
-  <select id="categoria">
-    <option value="">Todos</option>
-    <option value="camisetas">Camisetas</option>
-    <option value="botines">Botines</option>
-  </select>
-</section>
 
-<section id="paginacion">
-  <button id="prev-page">⏮️ Anterior</button>
-  <span id="page-indicador">Página 1</span>
-  <button id="next-page">Siguiente ⏭️</button>
-</section>
+      <!-- Buscador -->
+      <section id="buscador">
+        <label for="search-input">Buscar producto:</label>
+        <input type="text" id="search-input" placeholder="Ej: Messi, Nike..." />
+      </section>
 
-      <ul id="products-list"></ul>
+      <!-- Filtros por categoría -->
+      <section id="filtros">
+        <label for="categoria">Filtrar por tipo:</label>
+        <select id="categoria">
+          <option value="">Todos</option>
+          <option value="camiseta">Camisetas</option>
+          <option value="botines">Botines</option>
+        </select>
+      </section>
+
+      <!-- Galería -->
+      <ul id="products-list" class="product-grid"></ul>
+
     </div>
   </main>
 

@@ -151,8 +151,10 @@ main {
 }
 
 .page-title {
-    color: var(--color-texto);
-    text-align: center;
+  font-size: 32px;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: var(--color-header2);
 }
 
 hr {
@@ -328,6 +330,26 @@ footer {
     background-color: var(--color-header2);
     outline: none;
 }
+/*BUSCADOR PRODUCTOS*/
+#buscador,
+#filtros {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+#search-input,
+#categoria {
+  padding: 0.5rem;
+  border: 1px solid var(--color-header2);
+  border-radius: 6px;
+  font-size: 16px;
+  width: 220px;
+}
+
 
 /* SECCIÓN CARRITO */
 
@@ -536,3 +558,122 @@ footer {
   color: white;
   border-radius: 8px;
 }
+
+/* ENCUESTA */
+.encuesta-container {
+  max-width: 800px; /* antes 600px */
+  margin: 60px auto;
+  padding: 60px;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  border-radius: 12px;
+  box-shadow: var(--sombra);
+  font-family: 'Segoe UI', sans-serif;
+  transition: var(--transicion);
+}
+
+input[type="range"] {
+  accent-color: #00aeff; /* tono celeste moderno */
+}
+
+.encuesta-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: var(--color-texto);
+}
+
+.encuesta-container form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.encuesta-container textarea,
+.encuesta-container input[type="email"],
+.encuesta-container input[type="file"],
+.encuesta-container input[type="range"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 18px;
+  border: 1px solid var(--color-header2);
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  transition: var(--transicion);
+}
+
+.encuesta-container input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.encuesta-container .botones {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.encuesta-container button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transicion);
+}
+
+.encuesta-container button[type="submit"] {
+  background-color: var(--color-header);
+  color: white;
+}
+
+.encuesta-container button[type="submit"]:hover {
+  background-color: var(--color-header2);
+}
+
+#omitir-btn {
+  background-color: #e0e0e0;
+  color: #333333;
+}
+
+#omitir-btn:hover {
+  background-color: #d1d1d1;
+}
+
+/* Modal de agradecimiento */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: var(--color-fondo);
+  color: var(--color-texto);
+  padding: 25px;
+  border-radius: 10px;
+  text-align: center;
+  box-shadow: var(--sombra);
+}
+
+.modal-content button {
+  margin-top: 15px;
+  background-color: var(--color-header);
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: var(--transicion);
+}
+
+.modal-content button:hover {
+  background-color: var(--color-header2);
+}
+
