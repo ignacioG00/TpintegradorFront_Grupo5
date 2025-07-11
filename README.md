@@ -72,15 +72,14 @@ cd dashboard
 npm install
 
 # Ejecutá el servidor
-npm start
+npm run dev
 📍 Accedé a http://localhost:3000 para ver la aplicación.
 
 
 🧪 Datos de prueba
-Admin: Usuario: admin Contraseña: clave123
+Admin: selecionar ingreso rapido
 
 Cliente: Ingresar cualquier nombre para comenzar
-
 
 📝 Autores
 Este proyecto fue realizado por:
