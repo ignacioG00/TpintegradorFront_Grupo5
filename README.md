@@ -53,18 +53,7 @@ Visualizar todos los tickets generados por compras.
 
 Agregar nuevos administradores.
 
-📁 Estructura del repositorio
-TP_Integ2025-334_Guillen-Perez/
-│
-├── dashboard/               → Backend con Express y vistas EJS
-│   ├── src/
-│   │   ├── controllers/     → Lógica de productos, usuarios y tickets
-│   │   ├── views/           → Vistas EJS del panel admin
-│   │   └── routes/          → Rutas backend
-│
-├── frontend/                → Cliente web hecho con HTML, CSS y JS
-│
-└── README.md                → Documentación del proyecto
+<img width="471" height="247" alt="image" src="https://github.com/user-attachments/assets/549f4a68-31bd-4fc0-98ce-c341eae85a8d" />
 
 
 ⚙️ Instalación y ejecución
