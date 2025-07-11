@@ -1,4 +1,5 @@
 🛍️ Fulbo$hop — TP Integrador 2025
+
 Fulbo$hop es una tienda online ficticia especializada en la venta de camisetas y botines de fútbol. El proyecto está dividido en dos módulos principales:
 
 🔸 Frontend: HTML, CSS y JavaScript
@@ -7,7 +8,9 @@ Fulbo$hop es una tienda online ficticia especializada en la venta de camisetas y
 
 Incluye funcionalidades tanto para el cliente como para el administrador, simulando el flujo completo de un ecommerce.
 
+
 🚀 Tecnologías utilizadas
+
 Frontend: HTML, CSS, JavaScript
 
 Backend: Node.js, Express.js, EJS
@@ -15,6 +18,7 @@ Backend: Node.js, Express.js, EJS
 Persistencia: Archivos JSON (simulando una base de datos local)
 
 🧑‍💼 Inicio de sesión
+
 La aplicación ofrece dos formas de acceso:
 
 👤 Cliente: ingresa su nombre para entrar a la tienda.
@@ -34,7 +38,9 @@ Finalización de compra con generación de ticket.
 
 Encuesta de satisfacción posterior a la compra.
 
+
 🔧 Funcionalidades para Administrador
+
 Crear productos nuevos.
 
 Editar productos existentes.
@@ -59,11 +65,14 @@ TP_Integ2025-334_Guillen-Perez/
 ├── frontend/                → Cliente web hecho con HTML, CSS y JS
 │
 └── README.md                → Documentación del proyecto
+
+
 ⚙️ Instalación y ejecución
 🔨 Requisitos
 Node.js instalado
 
 Navegador moderno
+
 
 💻 Pasos para correr localmente
 bash
@@ -78,10 +87,12 @@ npm install
 npm start
 📍 Accedé a http://localhost:3000 para ver la aplicación.
 
+
 🧪 Datos de prueba
 Admin: Usuario: admin Contraseña: clave123
 
 Cliente: Ingresar cualquier nombre para comenzar
+
 
 📝 Autores
 Este proyecto fue realizado por:
