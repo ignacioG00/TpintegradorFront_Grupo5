@@ -56,22 +56,21 @@ Agregar nuevos administradores.
 <img width="471" height="247" alt="image" src="https://github.com/user-attachments/assets/549f4a68-31bd-4fc0-98ce-c341eae85a8d" />
 
 # ⚙️  Instalación y ejecución
+
+Deberia ejecutarse desde open live server el archivo home.html una vez iniciado el archivo de base de datos
+
 # 🔨 Requisitos
 Node.js instalado
 
 Navegador moderno
-
 
 # 💻 Pasos para correr localmente
 bash
 # Cloná el repositorio
 git clone https://github.com/ignacioG00/TP_Integ2025-334_Guillen-Perez.git
 
-# Entrá al backend y instalá dependencias
-cd dashboard
-npm install
-
 # Ejecutá el servidor
+cd dashboard
 npm run dev
 📍 Accedé a http://localhost:3000 para ver la aplicación.
 
