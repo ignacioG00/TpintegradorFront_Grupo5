@@ -73,7 +73,7 @@ function configurarBotones() {
 
     } else {
 
-      let ticketResponse = await fetch(`http://localhost:3000/api/sales/ticket`, {
+      let ticketResponse = await fetch(`http://localhost:3000/api/ticket`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -91,7 +91,7 @@ function configurarBotones() {
         
         for (const prod of carrito) {
 
-          let saleResponse = await fetch(`http://localhost:3000/api/sales`, {
+          let saleResponse = await fetch(`http://localhost:3000/api/ticket/sales`, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
