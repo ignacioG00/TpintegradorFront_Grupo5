@@ -15,7 +15,7 @@ Frontend: HTML, CSS, JavaScript
 
 Backend: Node.js, Express.js, EJS
 
-Persistencia: Archivos JSON (simulando una base de datos local)
+Persistencia: Base de datos mysql corriendo con XAMPP
 
 # 🧑‍💼 Inicio de sesión
 
