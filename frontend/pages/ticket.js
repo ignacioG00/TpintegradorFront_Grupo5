@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
   const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
-  const cliente = sessionStorage.getItem("cliente") || "Cliente Anónimo";
+  const cliente = sessionStorage.getItem("user") || "Cliente Anónimo";
 
   document.getElementById("nombre-cliente").textContent = cliente;
   document.getElementById("fecha-compra").textContent = new Date().toLocaleDateString();

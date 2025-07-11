@@ -62,7 +62,7 @@ form.addEventListener('submit', async (e) => {
       form.reset();
       valorSlider.textContent = '5';
     } else {
-      alert('Hubo un error al enviar la encuesta');
+      alert('No implementado aun');
     }
   } catch (error) {
     console.error(error);
@@ -72,7 +72,7 @@ form.addEventListener('submit', async (e) => {
 
 // Omitir encuesta
 omitirBtn.addEventListener('click', () => {
-  window.location.href = 'index.html'; // Ajustá según tu ruta base
+  window.location.href = 'index.html';
 });
 
 // Cerrar modal
