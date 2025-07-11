@@ -1,4 +1,4 @@
-🛍️ Fulbo$hop — TP Integrador 2025
+# 🛍️ Fulbo$hop — TP Integrador 2025
 
 Fulbo$hop es una tienda online ficticia especializada en la venta de camisetas y botines de fútbol. El proyecto está dividido en dos módulos principales:
 
@@ -9,7 +9,7 @@ Fulbo$hop es una tienda online ficticia especializada en la venta de camisetas y
 Incluye funcionalidades tanto para el cliente como para el administrador, simulando el flujo completo de un ecommerce.
 
 
-🚀 Tecnologías utilizadas
+# 🚀 Tecnologías utilizadas
 
 Frontend: HTML, CSS, JavaScript
 
@@ -17,15 +17,15 @@ Backend: Node.js, Express.js, EJS
 
 Persistencia: Archivos JSON (simulando una base de datos local)
 
-🧑‍💼 Inicio de sesión
+# 🧑‍💼 Inicio de sesión
 
 La aplicación ofrece dos formas de acceso:
 
-👤 Cliente: ingresa su nombre para entrar a la tienda.
+# 👤 Cliente: ingresa su nombre para entrar a la tienda.
 
-🛠️ Administrador: accede mediante credenciales válidas al panel de gestión.
+# 🛠️ Administrador: accede mediante credenciales válidas al panel de gestión.
 
-🛒 Funcionalidades para Cliente
+# 🛒 Funcionalidades para Cliente
 Visualización de todos los productos disponibles.
 
 Filtrado por tipo de producto (camisetas / botines).
@@ -39,7 +39,7 @@ Finalización de compra con generación de ticket.
 Encuesta de satisfacción posterior a la compra.
 
 
-🔧 Funcionalidades para Administrador
+# 🔧 Funcionalidades para Administrador
 
 Crear productos nuevos.
 
@@ -55,15 +55,14 @@ Agregar nuevos administradores.
 
 <img width="471" height="247" alt="image" src="https://github.com/user-attachments/assets/549f4a68-31bd-4fc0-98ce-c341eae85a8d" />
 
-
-⚙️ Instalación y ejecución
-🔨 Requisitos
+# ⚙️  Instalación y ejecución
+# 🔨 Requisitos
 Node.js instalado
 
 Navegador moderno
 
 
-💻 Pasos para correr localmente
+# 💻 Pasos para correr localmente
 bash
 # Cloná el repositorio
 git clone https://github.com/ignacioG00/TP_Integ2025-334_Guillen-Perez.git
