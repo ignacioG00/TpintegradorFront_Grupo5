@@ -13,10 +13,6 @@ Incluye funcionalidades tanto para el cliente como para el administrador, simula
 
 Frontend: HTML, CSS, JavaScript
 
-Backend: Node.js, Express.js, EJS
-
-Persistencia: Base de datos mysql corriendo con XAMPP
-
 # 🧑‍💼 Inicio de sesión
 
 La aplicación ofrece dos formas de acceso:
@@ -80,7 +76,7 @@ Admin: selecionar ingreso rapido
 
 Cliente: Ingresar cualquier nombre para comenzar
 
-📝 Autores
+#📝 Autores
 Este proyecto fue realizado por:
 
 Ignacio Guillen
