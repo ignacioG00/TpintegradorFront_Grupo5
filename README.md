@@ -21,9 +21,9 @@ Persistencia: Base de datos mysql corriendo con XAMPP
 
 La aplicación ofrece dos formas de acceso:
 
-# 👤 Cliente: ingresa su nombre para entrar a la tienda.
+👤 Cliente: ingresa su nombre para entrar a la tienda.
 
-# 🛠️ Administrador: accede mediante credenciales válidas al panel de gestión.
+🛠️ Administrador: accede mediante credenciales válidas al panel de gestión.
 
 # 🛒 Funcionalidades para Cliente
 Visualización de todos los productos disponibles.
